@@ -1,22 +1,21 @@
-import { StyleSheet, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import { ThemedText } from '../ThemedText';
+import { Ionicons } from '@expo/vector-icons';
 
-const actions = [
-  { id: 1, title: 'Flights', icon: '✈️' },
-  { id: 2, title: 'Hotels', icon: '🏨' },
-  { id: 3, title: 'Trains', icon: '🚂' },
-  { id: 4, title: 'Buses', icon: '🚌' },
-  { id: 5, title: 'Cabs', icon: '🚕' },
-  { id: 6, title: 'Activities', icon: '🎯' },
+const mainActions = [
+  { id: 1, title: 'Flights', icon: 'airplane' },
+  { id: 2, title: 'Hotels', icon: 'bed' },
+  { id: 3, title: 'Holiday Packages', icon: 'briefcase' },
+  { id: 4, title: 'Trains/Bus', icon: 'train' },
 ];
 
 export default function QuickActions() {
   return (
     <View style={styles.container}>
-      {actions.map((action) => (
+      {mainActions.map((action) => (
         <TouchableOpacity key={action.id} style={styles.actionButton}>
           <View style={styles.iconContainer}>
-            <ThemedText style={styles.icon}>{action.icon}</ThemedText>
+            <Ionicons name={action.icon} size={24} color="#0089FF" />
           </View>
           <ThemedText style={styles.title}>{action.title}</ThemedText>
         </TouchableOpacity>
@@ -31,9 +30,17 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     padding: 16,
     justifyContent: 'space-between',
+    backgroundColor: '#fff',
+    marginBottom: 16,
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
   },
   actionButton: {
-    width: '30%',
+    width: '22%',
     alignItems: 'center',
     marginBottom: 16,
   },
@@ -46,11 +53,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 8,
   },
-  icon: {
-    fontSize: 24,
-  },
   title: {
     fontSize: 12,
     color: '#333',
+    textAlign: 'center',
   },
 }); 

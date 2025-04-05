@@ -1,41 +1,32 @@
-import { StyleSheet, ScrollView, Image } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import { ThemedView } from '@/components/ThemedView';
-import { ThemedText } from '@/components/ThemedText';
-import SearchBar from '@/components/ui/SearchBar';
+import Header from '@/components/ui/Header';
+import ReferralBanner from '@/components/ui/ReferralBanner';
 import QuickActions from '@/components/ui/QuickActions';
+import ExpandableServices from '@/components/ui/ExpandableServices';
+import OffersSection from '@/components/ui/OffersSection';
+import FlagshipAirlineStore from '@/components/ui/FlagshipAirlineStore';
+import FlagshipHotelStores from '@/components/ui/FlagshipHotelStores';
+import DiscoverMore from '@/components/ui/DiscoverMore';
+import ExclusivePartners from '@/components/ui/ExclusivePartners';
+import WhereToGo from '@/components/ui/WhereToGo';
+import AdventureSection from '@/components/ui/AdventureSection';
 
 export default function HomeScreen() {
   return (
     <ThemedView style={styles.container}>
-      <SearchBar />
+      <Header />
       <ScrollView style={styles.scrollView}>
-        {/* Banner Section */}
-        <ThemedView style={styles.bannerContainer}>
-          <Image
-            source={require('@/assets/images/banner.jpg')}
-            style={styles.bannerImage}
-            resizeMode="cover"
-          />
-        </ThemedView>
-
-        {/* Quick Actions */}
+        <ReferralBanner />
         <QuickActions />
-
-        {/* Trending Destinations */}
-        <ThemedView style={styles.section}>
-          <ThemedText style={styles.sectionTitle}>Trending Destinations</ThemedText>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {/* Add destination cards here */}
-          </ScrollView>
-        </ThemedView>
-
-        {/* Special Offers */}
-        <ThemedView style={styles.section}>
-          <ThemedText style={styles.sectionTitle}>Special Offers</ThemedText>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {/* Add offer cards here */}
-          </ScrollView>
-        </ThemedView>
+        <ExpandableServices />
+        <OffersSection />
+        <FlagshipAirlineStore />
+        <FlagshipHotelStores />
+        <DiscoverMore/>
+        <ExclusivePartners/>
+        <WhereToGo />
+        <AdventureSection />
       </ScrollView>
     </ThemedView>
   );
@@ -44,24 +35,9 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#f5f5f5',
   },
   scrollView: {
     flex: 1,
-  },
-  bannerContainer: {
-    height: 200,
-    marginBottom: 16,
-  },
-  bannerImage: {
-    width: '100%',
-    height: '100%',
-  },
-  section: {
-    padding: 16,
-  },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 16,
   },
 });
