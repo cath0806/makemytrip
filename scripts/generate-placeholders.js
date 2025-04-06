@@ -30,7 +30,7 @@ const placeholders = [
   { name: 'pnr-icon.png', width: 40, height: 40, text: 'PNR' },
   { name: 'flight-status-icon.png', width: 40, height: 40, text: 'FS' },
   { name: 'partner1.jpg', width: 200, height: 120, text: 'Partner 1' },
-  { name: 'partner2.jpg', width: 200, height: 120, text: 'Partner 2' },
+ // { name: 'partner2.jpg', width: 200, height: 120, text: 'Partner 2' },
   { name: 'place.jpg', width: 300, height: 200, text: 'Place' },
   {
     name: 'adventure.jpg',

@@ -97,15 +97,17 @@ export default function OffersSection() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
-    borderRadius: 8,
+    backgroundColor: '#f5f5f5',
+    // borderRadius: 15,
+    // margin:15,
+    // marginTop:-8,
     padding: 16,
     marginBottom: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
+    // shadowColor: '#000',
+    // shadowOffset: { width: 0, height: 2 },
+    // shadowOpacity: 0.1,
+    // shadowRadius: 4,
+    // elevation: 2,
   },
   headerContainer: {
     flexDirection: 'row',
@@ -127,14 +129,16 @@ const styles = StyleSheet.create({
     marginRight: 4,
   },
   categoryScrollView: {
+    backgroundColor:'#fff',
+    borderRadius:10,
     marginBottom: 16,
   },
   categoryButton: {
     paddingHorizontal: 16,
     paddingVertical: 8,
     marginRight: 8,
-    borderRadius: 20,
-    backgroundColor: '#f5f5f5',
+    borderRadius: 10,
+    backgroundColor: '#fff',
   },
   selectedCategory: {
     backgroundColor: '#0089FF',
@@ -153,7 +157,7 @@ const styles = StyleSheet.create({
     width: width * 0.7,
     height: 150,
     marginRight: 16,
-    borderRadius: 8,
+    borderRadius: 15,
     overflow: 'hidden',
     backgroundColor: '#f5f5f5',
     position: 'relative',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Image, TouchableOpacity, FlatList, Dimensions } from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity, Dimensions } from 'react-native';
 import { ThemedText } from '../ThemedText';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -54,26 +54,11 @@ export default function WhereToGo() {
     },
   ];
 
-  const renderItem = ({ item }: { item: typeof stories[0] }) => (
-    <TouchableOpacity style={styles.card}>
-      <Image source={item.image} style={styles.image} resizeMode="cover" />
-      <View style={styles.content}>
-        <View style={styles.locationContainer}>
-          <Ionicons name={item.icon} size={20} color="#fff" />
-          <ThemedText style={styles.location}>{item.location}</ThemedText>
-        </View>
-        <ThemedText style={styles.description}>{item.description}</ThemedText>
-      </View>
-    </TouchableOpacity>
-  );
-
-  const renderFooter = () => (
-    <View style={styles.seeAllContainer}>
-      <TouchableOpacity style={styles.seeAllButton}>
-        <ThemedText style={styles.seeAllText}>See All Inspiring Stories {'>'}</ThemedText>
-      </TouchableOpacity>
-    </View>
-  );
+  // Group stories into rows of 2
+  const rows = [];
+  for (let i = 0; i < stories.length; i += 2) {
+    rows.push(stories.slice(i, i + 2));
+  }
 
   return (
     <View style={styles.container}>
@@ -83,25 +68,44 @@ export default function WhereToGo() {
           <ThemedText style={styles.viewAll}>View All {'>'}</ThemedText>
         </TouchableOpacity>
       </View>
-      <FlatList
-        data={stories}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id.toString()}
-        numColumns={2}
-        columnWrapperStyle={styles.row}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.listContent}
-        ListFooterComponent={renderFooter}
-      />
+      
+      {/* Grid layout using regular Views instead of FlatList */}
+      <View style={styles.gridContainer}>
+        {rows.map((row, rowIndex) => (
+          <View key={rowIndex} style={styles.row}>
+            {row.map((item) => (
+              <TouchableOpacity key={item.id} style={styles.card}>
+                <Image source={item.image} style={styles.image} resizeMode="cover" />
+                <View style={styles.content}>
+                  <View style={styles.locationContainer}>
+                    <Ionicons name={item.icon} size={20} color="#fff" />
+                    <ThemedText style={styles.location}>{item.location}</ThemedText>
+                  </View>
+                  <ThemedText style={styles.description}>{item.description}</ThemedText>
+                </View>
+              </TouchableOpacity>
+            ))}
+          </View>
+        ))}
+      </View>
+      
+      {/* See All button */}
+      <View style={styles.seeAllContainer}>
+        <TouchableOpacity style={styles.seeAllButton}>
+          <ThemedText style={styles.seeAllText}>See All Inspiring Stories {'>'}</ThemedText>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    backgroundColor: '#f5f5f5',
     padding: 16,
-    marginBottom: 16,
+     marginBottom: 16,
+    // borderRadius:15,
+    // margin:15,
   },
   header: {
     flexDirection: 'row',
@@ -119,17 +123,18 @@ const styles = StyleSheet.create({
     color: '#0089FF',
     fontWeight: '500',
   },
-  listContent: {
-    paddingBottom: 16,
+  gridContainer: {
+    marginBottom: 16,
   },
   row: {
+    flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 16,
+    marginBottom: 15,
   },
   card: {
     width: CARD_WIDTH,
     height: 200,
-    borderRadius: 12,
+    borderRadius: 15,
     overflow: 'hidden',
     backgroundColor: '#f5f5f5',
   },

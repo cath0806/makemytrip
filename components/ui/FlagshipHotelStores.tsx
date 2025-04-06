@@ -52,15 +52,18 @@ export default function FlagshipHotelStores() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
-    borderRadius: 8,
+    backgroundColor: '#f5f5f5',
+    // borderRadius: 15,
+     //margin:10,
+     //marginLeft:10,
     padding: 16,
     marginBottom: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
+    marginTop:-8,
+    // shadowColor: '#000',
+    // shadowOffset: { width: 0, height: 2 },
+    // shadowOpacity: 0.1,
+    // shadowRadius: 4,
+    // elevation: 2,
   },
   heading: {
     fontSize: 18,
@@ -76,8 +79,9 @@ const styles = StyleSheet.create({
   hotelCard: {
     width: cardWidth,
     height: 120,
-    marginBottom: 16,
-    borderRadius: 8,
+    marginBottom: 15,
+    
+    borderRadius: 15,
     overflow: 'hidden',
     position: 'relative',
   },

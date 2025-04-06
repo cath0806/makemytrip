@@ -29,15 +29,17 @@ export default function DiscoverMore() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
-    borderRadius: 8,
+    backgroundColor: '#f5f5f5',
+    // borderRadius: 15,
+    // margin:15,
+    // marginTop:-8,
     padding: 16,
     marginBottom: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
+    // shadowColor: '#000',
+    // shadowOffset: { width: 0, height: 2 },
+    // shadowOpacity: 0.1,
+    // shadowRadius: 4,
+    // elevation: 2,
   },
   heading: {
     fontSize: 18,
@@ -46,6 +48,10 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   optionsContainer: {
+    backgroundColor:'#fff',
+    borderRadius:15,
+    padding: 16,
+    height:100,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },

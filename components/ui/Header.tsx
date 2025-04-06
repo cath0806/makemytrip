@@ -7,7 +7,7 @@ export default function Header() {
     <View style={styles.container}>
       <View style={styles.leftSection}>
         <TouchableOpacity style={styles.menuButton}>
-          <Ionicons name="menu" size={24} color="#333" />
+          <Ionicons name="menu" size={20} color="#333" />
         </TouchableOpacity>
         <Image
           source={require('@/assets/images/mmt-logo.png')}
@@ -17,7 +17,7 @@ export default function Header() {
       </View>
       <View style={styles.rightSection}>
         <TouchableOpacity style={styles.searchButton}>
-          <Ionicons name="search" size={24} color="#333" />
+          <Ionicons name="search" size={20} color="#333" />
         </TouchableOpacity>
         <TouchableOpacity style={styles.myCashButton}>
           <ThemedText style={styles.myCashText}>myCash</ThemedText>
@@ -36,45 +36,49 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 16,
-    backgroundColor: '#fff',
+    paddingTop: 40,
+    backgroundColor: '#f5f5f5',
     borderBottomWidth: 1,
-    borderBottomColor: '#eee',
+    borderBottomColor: '#f5f5f5',
   },
   leftSection: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginLeft: -4,
   },
   menuButton: {
-    marginRight: 12,
+    marginRight: 2,
   },
   logo: {
-    width: 120,
-    height: 30,
+    marginLeft: -20,
+    width: 80,
+    height: 20,
   },
   rightSection: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   searchButton: {
-    marginRight: 16,
+    marginRight: 12,
   },
   myCashButton: {
-    //backgroundColor: '#f0f8ff',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 16,
-    marginRight: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 14,
+    marginRight: 6,
   },
   myCashText: {
     color: '#000',
     fontWeight: 'bold',
+    fontSize: 13,
   },
   myBizButton: {
-    paddingHorizontal: 12,
-    paddingVertical: 6,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
   },
   myBizText: {
     color: '#000',
     fontWeight: 'bold',
+    fontSize: 13,
   },
 }); 

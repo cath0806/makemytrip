@@ -11,7 +11,7 @@ import LoginPopup from '@/components/ui/LoginPopup';
 import SplashScreenComponent from '@/components/ui/SplashScreen';
 
 // Keep the splash screen visible while we fetch resources
-SplashScreen.preventAutoHideAsync();
+//SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
