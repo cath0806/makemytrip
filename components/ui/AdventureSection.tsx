@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, View, Image, TouchableOpacity, Dimensions } from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity, Dimensions, Animated } from 'react-native';
 import { ThemedText } from '../ThemedText';
 
 const { width } = Dimensions.get('window');
+const {height} = Dimensions.get('window');
 
 export default function AdventureSection() {
   return (
@@ -29,26 +30,28 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   contentContainer: {
+    marginBottom:50,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+     justifyContent: 'space-between',
+     alignItems:'flex-start',
   },
   textContainer: {
-    width: '40%',
+    width: '60%',
   },
   text: {
-    fontSize: 18,
+    fontSize: 15,
     color: '#444',
     marginBottom: 4,
   },
   highlightText: {
-    fontSize: 24,
+    paddingTop: 10,
+    fontSize: 32,
     fontWeight: 'bold',
-    color: '#659c6f',
+    color: '#006400',
   },
   image: {
-    width: width * 0.2,
-    height: width * 0.2,
+    width: width * 0.3,
+    height: width * 0.4,
     borderRadius: 8,
   },
 }); 

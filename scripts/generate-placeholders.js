@@ -40,6 +40,14 @@ const placeholders = [
     bgColor: '#4CAF50',
     textColor: '#fff'
   },
+  {
+    name: 'google-logo.png',
+    width: 100,
+    height: 100,
+    text: 'G',
+    bgColor: '#fff',
+    textColor: '#4285F4'
+  },
 ];
 
 placeholders.forEach(({ name, width, height, text }) => {

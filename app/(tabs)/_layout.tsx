@@ -1,6 +1,6 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, View, StyleSheet, ViewStyle } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import { HapticTab } from '@/components/HapticTab';
@@ -14,7 +14,8 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: '#0089FF',
+        tabBarInactiveTintColor: '#666',
         headerShown: false,
         tabBarButton: HapticTab,
         tabBarBackground: TabBarBackground,
@@ -27,15 +28,28 @@ export default function TabLayout() {
           }),
           backgroundColor: '#fff',
           borderTopWidth: 1,
-          borderTopColor: '#eee',
+          borderTopColor: '#fff',
+          height: 60,
+          paddingBottom: 8,
+          paddingTop: 8,
+        },
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontWeight: '500',
+        },
+        tabBarItemStyle: {
+          position: 'relative',
         },
       }}>
       <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }: { color: string }) => (
-            <Ionicons name="home" size={24} color={color} />
+          tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
+            <View>
+              {focused && <View style={styles.activeIndicator} />}
+              <Ionicons name="home" size={24} color={color} />
+            </View>
           ),
         }}
       />
@@ -43,8 +57,11 @@ export default function TabLayout() {
         name="explore"
         options={{
           title: 'MyTrips',
-          tabBarIcon: ({ color }: { color: string }) => (
-            <Ionicons name="airplane" size={24} color={color} />
+          tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
+            <View>
+              {focused && <View style={styles.activeIndicator} />}
+              <Ionicons name="airplane" size={24} color={color} />
+            </View>
           ),
         }}
       />
@@ -52,8 +69,11 @@ export default function TabLayout() {
         name="where2go"
         options={{
           title: 'Where2Go',
-          tabBarIcon: ({ color }: { color: string }) => (
-            <Ionicons name="globe" size={24} color={color} />
+          tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
+            <View>
+              {focused && <View style={styles.activeIndicator} />}
+              <Ionicons name="globe" size={24} color={color} />
+            </View>
           ),
         }}
       />
@@ -61,8 +81,11 @@ export default function TabLayout() {
         name="creditcard"
         options={{
           title: 'Credit Card',
-          tabBarIcon: ({ color }: { color: string }) => (
-            <Ionicons name="card" size={24} color={color} />
+          tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
+            <View>
+              {focused && <View style={styles.activeIndicator} />}
+              <Ionicons name="card" size={24} color={color} />
+            </View>
           ),
         }}
       />
@@ -70,11 +93,27 @@ export default function TabLayout() {
         name="beahost"
         options={{
           title: 'Be A Host',
-          tabBarIcon: ({ color }: { color: string }) => (
-            <Ionicons name="people" size={24} color={color} />
+          tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
+            <View>
+              {focused && <View style={styles.activeIndicator} />}
+              <Ionicons name="people" size={24} color={color} />
+            </View>
           ),
         }}
       />
     </Tabs>
   );
 }
+
+const styles = StyleSheet.create({
+  activeIndicator: {
+    position: 'absolute' as const,
+    top: -8,
+    left: '50%',
+    marginLeft: -15,
+    width: 30,
+    height: 3,
+    backgroundColor: '#0089FF',
+    borderRadius: 1.5,
+  },
+});

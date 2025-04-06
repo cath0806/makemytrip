@@ -19,6 +19,7 @@ export default function QuickActions() {
           </View>
           <ThemedText style={styles.title}>{action.title}</ThemedText>
         </TouchableOpacity>
+        
       ))}
     </View>
   );

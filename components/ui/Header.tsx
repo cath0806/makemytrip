@@ -22,6 +22,9 @@ export default function Header() {
         <TouchableOpacity style={styles.myCashButton}>
           <ThemedText style={styles.myCashText}>myCash</ThemedText>
         </TouchableOpacity>
+        <TouchableOpacity style={styles.myBizButton}>
+          <ThemedText style={styles.myBizText}>myBiz</ThemedText>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -56,13 +59,22 @@ const styles = StyleSheet.create({
     marginRight: 16,
   },
   myCashButton: {
-    backgroundColor: '#f0f8ff',
+    //backgroundColor: '#f0f8ff',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
+    marginRight: 8,
   },
   myCashText: {
-    color: '#0089FF',
+    color: '#000',
+    fontWeight: 'bold',
+  },
+  myBizButton: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+  },
+  myBizText: {
+    color: '#000',
     fontWeight: 'bold',
   },
 }); 
